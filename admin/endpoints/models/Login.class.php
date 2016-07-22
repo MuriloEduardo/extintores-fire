@@ -7,10 +7,11 @@ require_once("Logs.class.php");
 */
 class Login extends Conexao{
 
+	private $pdo;
+	
 	public $login;
 	public $senha;
 	public $remember;
-	private $pdo;
 
 	function __construct(){
 		$this->pdo = parent::getDB();

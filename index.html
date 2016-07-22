@@ -45,7 +45,8 @@
 						<input type="password" class="form-control" ng-model="login.senha" placeholder="Password" id="Senha">
 						<i class="fa fa-lock"></i>
 					</div>
-					<button type="submit" class="log-btn">Entrar</button>
+					{{loadLogin}}
+					<button type="submit" ng-click="send=true" class="log-btn">Entrar <i class="fa fa-spinner fa-pulse fa-fw" ng-show="loadLogin"></i></button>
 				</form>
 			</div>
 		</div>

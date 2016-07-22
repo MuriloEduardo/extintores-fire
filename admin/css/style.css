@@ -390,7 +390,6 @@ a:hover {
 }
 .cada-user.estoqueBaixo{
     background-color: #f2dede;
-    animation: .8s zoomIn;
 }
 .cada-user div{
     height: 40px;
