@@ -1,0 +1,120 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            <i class="fa fa-cubes"></i> Produtos <br><small>Gerencie seus produtos neste menu!</small>
+        </h1>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-12">
+        <a href="javascript:void(0)" ng-click="toggleNewUser(true)" class="btn btn-danger pull-right"><i class="fa fa-plus" aria-hidden="true"></i> Novo Produto</a>
+        <div class="search-input pull-right margin-right-10">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Busque por produtos e serviços" ng-model="buscaProdutos">
+                <span class="input-group-btn"><button class="btn btn-default" type="button"><i class="fa fa-search"></i></button></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="newUser" class="row b-s-1" ng-show="newUserOpen">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <a href="javascript:void(0)" ng-click="toggleNewUser(false)" class="pull-right close-newuser"><i class="fa fa-times" aria-hidden="true"></i></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" role="alert" ng-if="resNewUser.status">
+                    <a href="#" target="_self" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <p><strong>Sucesso!</strong> Produto ou serviço cadastrado.</p>
+                </div>
+                <form name="newUserForm">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-cubes" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" focus-on="newUserOpen" placeholder="Nome do produto ou serviço" aria-describedby="basic-addon1" ng-model="produtoForm.Produto" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-money" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" placeholder="Valor" aria-describedby="basic-addon1" ng-model="produtoForm.Valor" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-sort-numeric-asc" aria-hidden="true"></i></span>
+                                    <input type="number" class="form-control" string-to-number placeholder="Quantidade atual" aria-describedby="basic-addon1" ng-model="produtoForm.Qtde_Atual" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-sort-numeric-desc" aria-hidden="true"></i></span>
+                                    <input type="number" class="form-control" string-to-number placeholder="Quantidade Mínima" aria-describedby="basic-addon1" ng-model="produtoForm.Qtde_Minima">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-danger pull-right" ng-show="!editaPrdt" ng-click="cadastrar(produtoForm, newUserForm.$valid)">Cadastrar <i class="fa fa-save" aria-hidden="true"></i></button>
+                        <button class="btn btn-danger pull-right" ng-click="editarProdutos(produtoForm)" ng-show="editaPrdt">Editar e salvar <i class="fa fa-save" aria-hidden="true"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" ng-hide="produtos.length == 0">
+    <div class="col-md-12">
+        <div ng-repeat="produto in produtos | filter:buscaProdutos" ng-class="{estoqueBaixo: produto.Qtde_Atual < produto.Qtde_Minima}" class="cada-user b-s-1">
+            <div class="pull-left photo-user" ng-bind="substr(produto.Produto)"></div>
+            
+            <div class="pull-left txt-user">
+                <p>
+                    <i class="fa fa-cubes" aria-hidden="true"></i>
+                    <strong>Produto: </strong>{{produto.Produto}}
+                </p>
+                <p>
+                    <i class="fa fa-money" aria-hidden="true"></i>
+                    <strong>Valor: </strong>{{produto.Valor | currency}}
+                </p>
+            </div>
+
+            <div class="pull-left txt-user">
+                <p>
+                    <i class="fa fa-sort-numeric-asc" aria-hidden="true"></i>
+                    <strong>Qtde Atual: </strong>{{produto.Qtde_Atual}}
+                </p>
+                <p>
+                    <i class="fa fa-sort-numeric-desc" aria-hidden="true"></i>
+                    <strong>Qtde Mínima: </strong>{{produto.Qtde_Minima}}
+                </p>
+            </div>
+            <div class="pull-right actions-user">
+                <a href="javascript:void(0)" ng-click="OpenEditarProdutos(produto, $index)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                <a href="javascript:void(0)" ng-click="excluirProdutos(produto.Id_Produto, $index)"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+            </div>
+        </div>  
+    </div>
+</div>
+<div class="row" ng-show="produtos.length == '0'">
+    <br><br>
+    <div class="col-md-12">
+        <div class="alert alert-danger" role="alert">
+            <a href="javascript:void(0)" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <p><strong>Óh não!</strong> Você ainda não possui nenhum produto. Para cadastrar clique em <strong>"Novo Produto"</strong></p>
+        </div>
+    </div>
+</div>

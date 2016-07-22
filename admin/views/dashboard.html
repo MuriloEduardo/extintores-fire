@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            <i class="fa fa-dashboard"></i> Painel de controle <br><small>Saiba o que está acontecendo com seu estoque aqui!</small>
+        </h1>
+    </div>
+</div>
+<div class="row" ng-show="!estoqueBaixo.length">
+    <div class="col-md-12">
+        <div class="alert alert-success" role="alert">
+            <p><strong>Parabéns!</strong> Não existe produtos com estoque baixo no seu sistema.</p>
+        </div>
+    </div>
+</div>
+<div class="row" ng-hide="!estoqueBaixo.length">
+    <div class="col-lg-3 col-md-6" ng-repeat="produto in estoqueBaixo" ng-if="produto.Qtde_Atual < produto.Qtde_Minima">
+        <div class="panel panel-red">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-cubes fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">{{produto.Qtde_Atual}}</div>
+                        <div><strong>Produto acabando!</strong></div>
+                        <div>{{produto.Produto}}</div>
+                        <div class="data-prdt-estoquebaixo">{{produto.Data_Cadastro | date}}</div>
+                    </div>
+                </div>
+            </div>
+            <a href="#/produtos">
+                <div class="panel-footer">
+                    <span class="pull-left">Ver Todos</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

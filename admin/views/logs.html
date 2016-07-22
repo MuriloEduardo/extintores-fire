@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            <i class="fa fa-history"></i> Logs <br><small>Confira a baixo o que esta sendo feito no sistema.</small>
+        </h1>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-12">
+        <div class="search-input pull-right margin-right-10">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Busque por logs" ng-model="buscaLogs">
+                <span class="input-group-btn"><button class="btn btn-default" type="button"><i class="fa fa-search"></i></button></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div ng-repeat="log in logs | filter:buscaLogs" class="cada-user b-s-1">
+            <div class="pull-left photo-user" ng-bind="substr(log.Nome)"></div>
+            
+            <div class="pull-left txt-user">
+                <p>
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <strong>Nome: </strong>{{log.Nome}}
+                </p>
+                <p>
+                    <i class="fa fa-key" aria-hidden="true"></i>
+                    <strong>Login: </strong>{{log.Login}}
+                </p>
+            </div>
+            <div class="pull-left txt-user">
+                <p>
+                    <i class="fa fa-history" aria-hidden="true"></i>
+                    <strong>Log: </strong>{{log.descricao}}
+                </p>
+                <p>
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    <strong>Data: </strong>{{log.data_time | date}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

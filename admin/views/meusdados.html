@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            <i class="fa fa-user"></i> Seus dados <br><small>Caso precise, não deixe de editar seus dados.</small>
+        </h1>
+    </div>
+</div>
+<br>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<form name="perfilForm">
+			<div class="foto-perfil-grande" ng-bind="substr(dadosUsuario.Nome)"></div>
+			<br>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<p><strong>Data Cadastro: </strong><span>{{dadosUsuario.Data_Cadastro | date}}</span></p>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<p><strong>Tipo de Usuário: </strong><span ng-bind="tipoUser(dadosUsuario.Tipo_User)"></span></p>
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Nome</label>
+						<input type="text" ng-model="perfil.Nome" class="form-control" required>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Login</label>
+						<input type="text" ng-model="perfil.Login" class="form-control" required>
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-md-12">
+					<button class="btn btn-danger form-control">Salvar</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
