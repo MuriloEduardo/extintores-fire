@@ -1,4 +1,6 @@
-app.controller('produtosCtrl', function($scope, Api, allProdutos){
+app.controller('produtosCtrl', function($scope, Api, allProdutos, $rootScope){
+
+    $rootScope.loadViews = false;
 
 	$scope.produtos = allProdutos.data;
     $scope.resNewUser = false;

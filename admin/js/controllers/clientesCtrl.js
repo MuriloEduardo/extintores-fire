@@ -1,4 +1,6 @@
-app.controller('clientesCtrl', function($scope, Upload, allClientes, Api){
+app.controller('clientesCtrl', function($scope, Upload, allClientes, Api, $rootScope){
+
+    $rootScope.loadViews = false;
 
 	$scope.clientes = allClientes.data;
     $scope.editarCliente = false;

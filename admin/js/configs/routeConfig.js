@@ -64,15 +64,12 @@ app.config(function ($routeProvider) {
 
     .when('/logs', {
         templateUrl: 'views/logs.html',
+        controller: 'logsCtrl',
         resolve: {
             allLogs: function (Api){
                 return Api.getAllLogs();
             }
         }
-    })
-
-    .when('/logs/:id', {
-        templateUrl: 'views/logs.html'
     })
 
     .otherwise({redirectTo: '/'});

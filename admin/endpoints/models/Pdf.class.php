@@ -18,7 +18,7 @@ class PDF extends FPDF {
 	    // Select Arial italic 8
 	    $this->SetFont('Arial','I',8);
 	    // Print centered page number
-	    $this->Cell(0,10,utf8_decode('Página '.$this->PageNo()),0,0,'C');
+	    $this->Cell(0,10,utf8_decode('Página '. $this->PageNo() . ' - Data ' . date("d/m/Y")),0,0,'C');
 	}
 }
 ?>

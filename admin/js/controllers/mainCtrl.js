@@ -1,4 +1,6 @@
-app.controller('mainCtrl', function($scope, $location, Api){
+app.controller('mainCtrl', function($scope, $location, Api, $rootScope){
+
+	$rootScope.loadViews = false;
 	
 	Api.getLimitLogs().success(function(response){
 		$scope.logs = response;
@@ -18,5 +20,9 @@ app.controller('mainCtrl', function($scope, $location, Api){
     $scope.logout = function() {
     	location.href='../';
     	localStorage.clear();
+    }
+
+    $scope.ngViewNav = function() {
+    	$rootScope.loadViews = true;	
     }
 });

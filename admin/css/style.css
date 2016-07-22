@@ -69,7 +69,6 @@ select{
     color: #fff;
     background-color: #000;
 }
-
 .top-nav>.open>.dropdown-menu {
     float: left;
     position: absolute;
@@ -546,4 +545,22 @@ textarea{
 }
 .ordemZerada:hover{
     color: #d32f2f;
+}
+textarea:hover, 
+input:hover, 
+textarea:active, 
+input:active, 
+textarea:focus, 
+input:focus,
+button:focus,
+button:active,
+button:hover
+{
+  outline:0px !important;
+  -webkit-appearance:none;
+}
+.top-nav>li>a.no-hover{cursor:wait;}
+.top-nav>li>a.no-hover:hover,
+.top-nav>li>a.no-hover:focus{
+    background-color:transparent;
 }

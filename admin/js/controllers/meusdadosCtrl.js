@@ -1,4 +1,6 @@
-app.controller('meusdadosCtrl', function($scope, Api){
+app.controller('meusdadosCtrl', function($scope, Api, $rootScope){
+
+	$rootScope.loadViews = false;
 
 	$scope.dadosUsuario = JSON.parse(window.localStorage.getItem('user')).user;
 	$scope.perfil = {

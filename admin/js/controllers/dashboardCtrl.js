@@ -1,4 +1,6 @@
-app.controller('dashboardCtrl', function($scope, Api, estoqueBaixo){
+app.controller('dashboardCtrl', function($scope, Api, estoqueBaixo, $rootScope){
+
+	$rootScope.loadViews = false;
 
 	$scope.estoqueBaixo = estoqueBaixo.data;
 

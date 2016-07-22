@@ -96,6 +96,9 @@
 	            </div>
 	            <!-- Top Menu Items -->
 	            <ul class="nav navbar-right top-nav">
+	                <li ng-show="loadViews">
+	                	<a href="javascript:void(0)" class="no-hover"><i class="fa fa-spinner fa-pulse fa-fw"></i></a>
+	                </li>
 	                <li class="dropdown">
 	                    <a href="javascript:void(0)" ng-class="getClass('/logs')" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-history"></i> <b class="caret"></b></a>
 	                    <ul class="dropdown-menu message-dropdown">
@@ -115,7 +118,7 @@
 	                            </a>
 	                        </li>
 	                        <li class="message-footer">
-	                            <a href="#/logs">Ver todos os logs</a>
+	                            <a href="#/logs" ng-click="ngViewNav()">Ver todos os logs</a>
 	                        </li>
 	                    </ul>
 	                </li>
@@ -123,7 +126,7 @@
 	                    <a href="javascript:void(0)" ng-class="getClass('/meus-dados')" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{dadosUsuario.Nome}} <b class="caret"></b></a>
 	                    <ul class="dropdown-menu">
 	                        <li>
-	                            <a href="#/meus-dados"><i class="fa fa-fw fa-user"></i> Seus dados</a>
+	                            <a href="#/meus-dados" ng-click="ngViewNav()"><i class="fa fa-fw fa-user"></i> Seus dados</a>
 	                        </li>
 	                        <li class="divider"></li>
 	                        <li>
@@ -136,19 +139,19 @@
 	            <div class="collapse navbar-collapse navbar-ex1-collapse">
 	                <ul class="nav navbar-nav side-nav">
 	                    <li ng-class="getClass('/')">
-	                        <a href="#/"><i class="fa fa-fw fa-dashboard"></i> Painel de controle</a>
+	                        <a href="#/" ng-click="ngViewNav()"><i class="fa fa-fw fa-dashboard"></i> Painel de controle</a>
 	                    </li>
 	                    <li ng-class="getClass('/usuarios')">
-	                        <a href="#/usuarios"><i class="fa fa-fw fa-users"></i> Usuários</a>
+	                        <a href="#/usuarios" ng-click="ngViewNav()"><i class="fa fa-fw fa-users"></i> Usuários</a>
 	                    </li>
 	                    <li ng-class="getClass('/produtos')">
-	                        <a href="#/produtos"><i class="fa fa-fw fa-cubes"></i> Produtos / Serviços</a>
+	                        <a href="#/produtos" ng-click="ngViewNav()"><i class="fa fa-fw fa-cubes"></i> Produtos / Serviços</a>
 	                    </li>
 	                    <li ng-class="getClass('/clientes')">
-	                        <a href="#/clientes"><i class="fa fa-fw fa-male"></i> Clientes</a>
+	                        <a href="#/clientes" ng-click="ngViewNav()"><i class="fa fa-fw fa-male"></i> Clientes</a>
 	                    </li>
 	                    <li ng-class="getClass('/servicos')">
-	                        <a href="#/servicos"><i class="fa fa-fw fa-money"></i> Serviços</a>
+	                        <a href="#/servicos" ng-click="ngViewNav()"><i class="fa fa-fw fa-money"></i> Serviços</a>
 	                    </li>
 	                </ul>
 	            </div>

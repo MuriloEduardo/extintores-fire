@@ -1,4 +1,6 @@
-app.controller('logsCtrl', function($scope, allLogs){
+app.controller('logsCtrl', function($scope, allLogs, $rootScope){
+
+	$rootScope.loadViews = false;
 	
 	$scope.logs = allLogs.data;
 

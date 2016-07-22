@@ -1,4 +1,6 @@
-app.controller('servicosCtrl', function($scope, allClientes, allProdutos, allServicos, Api, $filter, $timeout){
+app.controller('servicosCtrl', function($scope, allClientes, allProdutos, allServicos, Api, $filter, $timeout, $rootScope){
+
+    $rootScope.loadViews = false;
 
     $scope.servicos = allServicos.data;
     $scope.clientes = allClientes.data;

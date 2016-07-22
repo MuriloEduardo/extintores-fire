@@ -1,4 +1,6 @@
-app.controller('usuariosCtrl', function($scope, $http, $location, allUsuarios, Api){
+app.controller('usuariosCtrl', function($scope, $http, $location, allUsuarios, Api, $rootScope){
+
+    $rootScope.loadViews = false;
 
     $scope.usuarios = allUsuarios.data;
     $scope.resNewUser = false;
